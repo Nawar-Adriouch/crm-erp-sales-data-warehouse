@@ -64,19 +64,24 @@ disponible dans [`data_catalogue.md`](./data_catalogue.md).
 ## Structure du dépôt
 
 ```text
-.
 ├── datasets/
 │   ├── source_crm/
 │   └── source_erp/
 ├── scripts/
-│   ├── schema.sql
-│   ├── db_bronze.sql
-│   ├── load_data_bronze.sql
-│   ├── cleaning_data_bronze _to_silver.sql
-│   └── build_gold_data.sql
+│   ├── schema.sql              # base DataWarehouse + schémas bronze / silver / gold
+│   ├── db_bronze.sql           # tables Bronze
+│   ├── db_silver.sql           # tables Silver
+│   ├── load_data_bronze.sql    # procédure bronze.load_data (BULK INSERT des CSV)
+│   ├── load_silver.sql         # procédure silver.load_silver (nettoyage)
+│   └── build_gold_data.sql     # vues Gold (modèle en étoile)
+├── tests/
+│   └── quality_checks.sql      # contrôles qualité
+├── docs/                       # schémas d'architecture
 ├── data_catalogue.md
 ├── DOCUMENTATION.md
-└── docker-compose.yml
+├── docker-compose.yml
+├── run_all.sh                  # lance tout le pipeline en une commande
+└── .env.example                # modèle de configuration (mot de passe SQL Server)
 ```
 
 ## Technologies
