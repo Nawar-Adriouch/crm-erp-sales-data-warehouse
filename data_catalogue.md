@@ -78,7 +78,7 @@ the CRM customer business key.
 |                 |                                               |                                                                                  |
 | `gender`        | `silver.crm_cust_info.cst_gndr`; fallback     |      CRM gender with ERP gender as 
                     `silver.erp_cust_az12.gen`                    |       fallback; ERP matched on CRM `cst_key` = ERP `cid`.                        |
-|                 |                                               |                                                                                  |                                                                
+|                 |                                               |                                                                                  |                                                       
 |                 |                                               |                                                                                  |
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 |                 |                                               |                                                                                  |

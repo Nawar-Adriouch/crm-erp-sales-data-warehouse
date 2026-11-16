@@ -45,7 +45,8 @@ BEGIN
                    ROW_NUMBER() OVER (PARTITION BY cst_id ORDER BY cst_create_date DESC) as rn
             FROM bronze.crm_cust_info
         ) t
-        WHERE rn = 1;
+        WHERE rn = 1
+          AND cst_id IS NOT NULL;   -- exclut les lignes clients sans identifiant
 
         SET @end_time = GETDATE();
         SET @duration = '-- Durée de chargement de crm_cust_info : ' + CAST(DATEDIFF(SECOND, @start_time, @end_time) AS NVARCHAR(10)) + ' secondes';

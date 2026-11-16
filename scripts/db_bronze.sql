@@ -86,6 +86,3 @@ CREATE TABLE bronze.erp_px_cat_g1v2 (
     dwh_create_date DATETIME2(0) DEFAULT SYSDATETIME()
 );
 GO
-
--- db_bronze.sql
--- load_data.sql

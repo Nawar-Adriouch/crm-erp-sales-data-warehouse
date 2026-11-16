@@ -15,8 +15,8 @@ SELECT
     la.cntry                            AS country,
     ci.cst_marital_status               AS marital_status,
     CASE
-        WHEN ci.cst_gndr != 'n/a' THEN ci.cst_gndr -
-        ELSE COALESCE(ca.gen, 'n/a')               
+        WHEN ci.cst_gndr != 'n/a' THEN ci.cst_gndr 
+       ELSE COALESCE(ca.gen, 'n/a')               
     END                                 AS gender,
     ca.bdate                            AS birthdate,
     ci.cst_create_date                  AS create_date
@@ -25,11 +25,7 @@ LEFT JOIN silver.erp_cust_az12 ca
     ON ci.cst_key = ca.cid
 LEFT JOIN silver.erp_loc_a101 la
     ON ci.cst_key = la.cid
-
 GO
-
-
-SELECT * FROM gold.dim_customers;
 
 
 
@@ -59,8 +55,6 @@ WHERE pn.prd_end_dt IS NULL;
 GO
  
 
-SELECT * FROM gold.dim_products;
-
 
 ----------------------- VIew crm.sales_details
 
@@ -86,7 +80,7 @@ LEFT JOIN gold.dim_customers cu
     ON sd.sls_cust_id = cu.customer_id;
 GO
 
-SELECT* FROM gold.fact_sales
+
 
 
 
